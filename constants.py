@@ -1,0 +1,4 @@
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 700
+
+BACKGROUND = "visuals\Space.jpg"
