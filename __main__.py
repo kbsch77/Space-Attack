@@ -67,6 +67,14 @@ def main():
 
         # calls enemy movement for all enemies
         for i in range(e.numofEnemies):
+
+            # game over
+            if e.enemyY[i] > c.SCREEN_HEIGHT - 125:
+                for j in range(e.numofEnemies):
+                    e.enemyY[j] = 1500
+                s.gameOverText()
+                break
+
             e.enemyX[i] += e.enemyX_Change[i]
             # movement boundaries / change direction
             if(e.enemyX[i] <= 0):
