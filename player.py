@@ -10,7 +10,7 @@ laserImage = pygame.image.load('visuals/laser.png')
 laserImage = pygame.transform.rotate(laserImage, 180)
 laserX = 0
 laserY = 680
-laserY_Change = 15
+laserY_Change = 20
 laserState = "ready"
 
 def player(x,y):

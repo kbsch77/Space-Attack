@@ -5,6 +5,8 @@ import constants as c
 import display as d
 import player as p
 import enemy as e
+import score as s
+import audio as a
 
 def main():
      
@@ -14,11 +16,12 @@ def main():
     # define a variable to control the main loop
     running = True
 
-    score = 0
+    # background music
+    a
 
     # main loop
     while running:
-        #sets backgrounf image
+        #sets background image
         d.background()
 
         # event handling, gets all event from the event queue
@@ -40,6 +43,7 @@ def main():
                     if (p.laserState == "ready"):
                         p.laserX = p.playerX
                         p.fire_laser(p.laserX, p.laserY)
+                        a.laserSound()
             
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_a or event.key == pygame.K_d:
@@ -77,16 +81,23 @@ def main():
             if collision:
                 p.laserY = p.playerY
                 p.laserState = "ready"
-                score += 1
-                print(score)
+                s.scoreValue += 1
+
+                # explosion
+                a.hitSound()
                 e.explode(e.enemyX[i], e.enemyY[i])
+
+                # reset enemy
                 e.enemyX[i] = random.randint(1, c.SCREEN_WIDTH - 32)
                 e.enemyY[i] = random.randint(50, 400)
-                
+                # e.numofEnemies += 1
+            
+            # calls the enemies
             e.enemy(e.enemyX[i], e.enemyY[i], i)
 
-        # calls the player
+        # calls the player and score
         p.player(p.playerX, p.playerY)
+        s.showScore()
 
         # updates the screen graphics
         pygame.display.update()
