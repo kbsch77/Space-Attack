@@ -1,4 +1,5 @@
 import pygame
+import random
 
 import constants as c
 import display as d
@@ -12,6 +13,8 @@ def main():
      
     # define a variable to control the main loop
     running = True
+
+    score = 0
 
     # main loop
     while running:
@@ -34,7 +37,7 @@ def main():
 
                 # fire laser
                 if event.key == pygame.K_SPACE:
-                    if p.laserState is "ready":
+                    if (p.laserState == "ready"):
                         p.laserX = p.playerX
                         p.fire_laser(p.laserX, p.laserY)
             
@@ -46,7 +49,7 @@ def main():
         if (p.laserY <= 0): 
             p.laserY = p.playerY
             p.laserState = "ready"
-        if (p.laserState is "fire"):
+        if (p.laserState == "fire"):
             p.fire_laser(p.laserX, p.laserY)
             p.laserY -= p.laserY_Change
 
@@ -58,19 +61,32 @@ def main():
         elif(p.playerX >= c.SCREEN_WIDTH - 32):
             p.playerX = c.SCREEN_WIDTH - 32
 
-        # calls enemy movement
-        e.enemyX += e.enemyX_Change
-        # movement boundaries / change direction
-        if(e.enemyX <= 0):
-            e.enemyX_Change = 4
-            e.enemyY += e.enemyY_Change
-        elif(e.enemyX >= c.SCREEN_WIDTH - 32):
-            e.enemyX_Change = -4
-            e.enemyY += e.enemyY_Change
+        # calls enemy movement for all enemies
+        for i in range(e.numofEnemies):
+            e.enemyX[i] += e.enemyX_Change[i]
+            # movement boundaries / change direction
+            if(e.enemyX[i] <= 0):
+                e.enemyX_Change[i] = 4
+                e.enemyY[i] += e.enemyY_Change[i]
+            elif(e.enemyX[i] >= c.SCREEN_WIDTH - 32):
+                e.enemyX_Change[i] = -4
+                e.enemyY[i] += e.enemyY_Change[i]
 
-        # calls the player & enemies
+            # collision detection
+            collision = e.isCollision(e.enemyX[i], e.enemyY[i], p.laserX, p.laserY)
+            if collision:
+                p.laserY = p.playerY
+                p.laserState = "ready"
+                score += 1
+                print(score)
+                e.explode(e.enemyX[i], e.enemyY[i])
+                e.enemyX[i] = random.randint(1, c.SCREEN_WIDTH - 32)
+                e.enemyY[i] = random.randint(50, 400)
+                
+            e.enemy(e.enemyX[i], e.enemyY[i], i)
+
+        # calls the player
         p.player(p.playerX, p.playerY)
-        e.enemy(e.enemyX, e.enemyY)
 
         # updates the screen graphics
         pygame.display.update()

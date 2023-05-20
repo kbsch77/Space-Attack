@@ -23,7 +23,6 @@
 
 * [Space Background](https://www.freepik.com/free-vector/hand-painted-watercolor-galaxy-background_14237502.htm#query=watercolor%20galaxy&position=3&from_view=keyword&track=ais)
 * [Game Icon](https://www.freepik.com/free-icon/alien_696412.htm#query=alien%20symbol&position=2&from_view=keyword&track=ais)
-* [enemy & player ship](https://www.flaticon.com/search?word=space%20invaders)
-* [laser shot](https://www.flaticon.com/search?word=laser)
-
-* [Web Site Name](http://url.link.goes.here)
+* [enemy & player ship images](https://www.flaticon.com/search?word=space%20invaders)
+* [laser image](https://www.flaticon.com/search?word=laser)
+* [Explosion image](https://www.flaticon.com/search?word=blast)
