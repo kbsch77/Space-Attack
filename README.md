@@ -1,20 +1,24 @@
 # Overview
 
-{Provide a description of your software}
+This program is a simple "Space Invader" like game. I made it to practice Pygame and create my first true game. It is useful for it's example in game development, file organization, and implementation of the code files interacting among itself. 
 
-{Describe your purpose for creating this software.}
+[Software Demo Video](https://youtu.be/jEMW1Ff9ZGA)
 
-[Software Demo Video](http://youtube.link.goes.here)
+# Game Controls
+
+* Move left: 'a' key 
+* Move right: 'd' key
+* shoot: spacebar
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used}
+* Visual Studio Code
+* Python 3.10.1
+* Pygame 2.4.0
+* Git / Github
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [Pygame Tutorials](https://www.pygame.org/wiki/tutorials)
 * [Pygame Tutorial Videos](https://www.youtube.com/playlist?list=PLhTjy8cBISEo3SzET7Fc3-b4miKWp41yX)
 
