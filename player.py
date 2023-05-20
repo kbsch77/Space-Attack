@@ -1,15 +1,16 @@
 import pygame
 import display as d
+import constants as c
 
 playerImage = pygame.image.load('visuals/001-space-invaders.png')
 playerX = 384
-playerY = 680
+playerY = c.SCREEN_HEIGHT - 75
 playerX_Change = 0
 
 laserImage = pygame.image.load('visuals/laser.png')
 laserImage = pygame.transform.rotate(laserImage, 180)
 laserX = 0
-laserY = 680
+laserY = c.SCREEN_HEIGHT - 75
 laserY_Change = 20
 laserState = "ready"
 

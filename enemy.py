@@ -9,13 +9,13 @@ enemyX = []
 enemyY = []
 enemyX_Change = []
 enemyY_Change = []
-numofEnemies = 7
+numofEnemies = 10
 
 for i in range(numofEnemies):
     enemyImage.append(pygame.image.load('visuals/alien.png'))
     enemyX.append(random.randint(1, c.SCREEN_WIDTH - 32))
     enemyY.append(random.randint(50, 400))
-    enemyX_Change.append(4)
+    enemyX_Change.append(5)
     enemyY_Change.append(32)
 
 explosionImage = pygame.image.load('visuals/explode.png')

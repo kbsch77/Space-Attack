@@ -17,7 +17,6 @@
 {Make a list of websites that you found helpful in this project}
 * [Pygame Tutorials](https://www.pygame.org/wiki/tutorials)
 * [Pygame Tutorial Videos](https://www.youtube.com/playlist?list=PLhTjy8cBISEo3SzET7Fc3-b4miKWp41yX)
-* [Web Site Name](http://url.link.goes.here)
 
 # Assets
 

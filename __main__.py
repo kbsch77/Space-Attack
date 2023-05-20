@@ -34,9 +34,9 @@ def main():
             if event.type == pygame.KEYDOWN:
                 # player movement
                 if event.key == pygame.K_a:
-                    p.playerX_Change = -7
+                    p.playerX_Change = -10
                 if event.key == pygame.K_d:
-                    p.playerX_Change = 7
+                    p.playerX_Change = 10
 
                 # fire laser
                 if event.key == pygame.K_SPACE:
@@ -69,19 +69,19 @@ def main():
         for i in range(e.numofEnemies):
 
             # game over
-            if e.enemyY[i] > c.SCREEN_HEIGHT - 125:
+            if e.enemyY[i] > c.SCREEN_HEIGHT - 150:
                 for j in range(e.numofEnemies):
-                    e.enemyY[j] = 1500
+                    e.enemyY[j] = 1000
                 s.gameOverText()
                 break
 
             e.enemyX[i] += e.enemyX_Change[i]
             # movement boundaries / change direction
             if(e.enemyX[i] <= 0):
-                e.enemyX_Change[i] = 4
+                e.enemyX_Change[i] = 6
                 e.enemyY[i] += e.enemyY_Change[i]
             elif(e.enemyX[i] >= c.SCREEN_WIDTH - 32):
-                e.enemyX_Change[i] = -4
+                e.enemyX_Change[i] = -6
                 e.enemyY[i] += e.enemyY_Change[i]
 
             # collision detection
@@ -98,7 +98,6 @@ def main():
                 # reset enemy
                 e.enemyX[i] = random.randint(1, c.SCREEN_WIDTH - 32)
                 e.enemyY[i] = random.randint(50, 400)
-                # e.numofEnemies += 1
             
             # calls the enemies
             e.enemy(e.enemyX[i], e.enemyY[i], i)
